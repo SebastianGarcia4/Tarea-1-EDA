@@ -5,8 +5,8 @@
 void insertionSort(float arr[], int n);
 
 //SELECTION SORT
-void swap(float *xp, float *yp);
-void selectionSort(float arr[], int n);
+void swap(float* A, int i, int j);
+void selectionSort(float* A, int n);
 
 //QUICKSORT
 int getRandomInt(int min, int max);
@@ -22,7 +22,7 @@ void merge(float array[], int const left, int const mid,
 void mergeSort(float array[], int const begin, int const end);
 
 //PRINT ARRAY
-void printArray(float arr[], int n);
+void printArray(float* A, int n);
 
 //CREATE RAND ARRAY
 

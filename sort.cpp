@@ -125,21 +125,19 @@ void merge(float * A, int i, int k, int j){
 void mergeSort(float * A, int const i, int const j){
     if (i >= j)
         return; 
-    auto k = i + (j - i) / 2;
+    auto k = i + (j-i) / 2;
     mergeSort(A, i, k);
-    mergeSort(A, k + 1, j);
+    mergeSort(A, k+1, j);
     merge(A, i, k, j);
 } 
 //MERGESORT 
 
-void printArray(float arr[], int n)
-{
-	int i;
-	for (i = 0; i < n; i++){
-    }
-        cout << i << " " << arr[i] << endl;   
-	cout << endl;
-}
+void printArray(float* A, int n){
+		for (int i = 0; i < n; i++){
+			std::cout<<A[i]<<" ";
+		}
+		std::cout<<std::endl;
+	}
 
 //CREATE RAND ARRAY
 
@@ -148,7 +146,6 @@ float * createArray(int n){
 }
 
 float* createRandomArray(int n){
-    srand (time(NULL) );
     float* A = createArray(n);
     for (int i = 0; i < n; i++){
         A[i] =  std::rand() / static_cast<float>(RAND_MAX);
