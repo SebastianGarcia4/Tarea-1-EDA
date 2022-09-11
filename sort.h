@@ -28,7 +28,7 @@ void printArray(float* A, int n);
 
 float* createArray(int n);
 
-float* createRandomArray(int n);
+float* createRandomArray(int n); 
 
 void merge2(float * A, int i, int k, int j);
 

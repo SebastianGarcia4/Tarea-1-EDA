@@ -26,7 +26,7 @@ void swap(float* A, int i, int j){
 		A[i] = A[j];
 		A[j] = aux;
 }
-
+ 
 void selectionSort(float* A, int n){
     int smallest = 0;
     int i = 0;
