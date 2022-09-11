@@ -122,14 +122,13 @@ void merge(float * A, int i, int k, int j){
     }
 }
 
-void mergeSort(float * array, int const begin, int const end)
-{
-    if (begin >= end)
+void mergeSort(float * A, int const i, int const j){
+    if (i >= j)
         return; 
-    auto mid = begin + (end - begin) / 2;
-    mergeSort(array, begin, mid);
-    mergeSort(array, mid + 1, end);
-    merge(array, begin, mid, end);
+    auto k = i + (j - i) / 2;
+    mergeSort(A, i, k);
+    mergeSort(A, k + 1, j);
+    merge(A, i, k, j);
 } 
 //MERGESORT 
 
