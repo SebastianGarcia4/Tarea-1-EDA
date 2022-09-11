@@ -44,10 +44,10 @@ int main()
     auto end_time = chrono::high_resolution_clock::now();
     auto time = end_time - start_time;
 
-    cout << "----INSERTION SORT----" << endl;
-    cout << "----SELECTION SORT----" << endl;
-    cout << "----QUICK SORT----" << endl;
-    cout << "----MERGE SORT----" << endl;
+    // cout << "----INSERTION SORT----" << endl;
+    // cout << "----SELECTION SORT----" << endl;
+    // cout << "----QUICK SORT----" << endl;
+    // cout << "----MERGE SORT----" << endl;
 
     cout<<"Tiempo de ejecucion: "<<time/std::chrono::milliseconds(1) << "ms.\n";
     cout<<"Para "<<n<<" elementos"<<endl;
