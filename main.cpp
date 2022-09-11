@@ -9,7 +9,7 @@ int main()
     srand ( time(NULL) );
 
     // TAMAÑOS PEQUEÑOS
-    // const int n=10000;
+    const int n=10000;
     // const int n=20000;
     // const int n=30000;
     // const int n=40000;
@@ -51,7 +51,7 @@ int main()
 
     cout<<"Tiempo de ejecucion: "<<time/std::chrono::milliseconds(1) << "ms.\n";
     cout<<"Para "<<n<<" elementos"<<endl;
-    
+
 	// printArray(arr,n);
 
 	return 0;
