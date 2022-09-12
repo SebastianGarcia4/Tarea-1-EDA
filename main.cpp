@@ -9,7 +9,7 @@ int main()
     srand ( time(NULL) );
 
     // TAMAÑOS PEQUEÑOS
-    const int n=10000;
+    // const int n=10000;
     // const int n=20000;
     // const int n=30000;
     // const int n=40000;
@@ -18,7 +18,7 @@ int main()
     // const int n=70000;
     // const int n=80000;
     // const int n=90000;
-    // const int n=100000;
+    const int n=100000;
 
     // TAMAÑOS GRANDES
     // const int n=100000;
@@ -38,7 +38,7 @@ int main()
 	// insertionSort(arr,n);
     // selectionSort(arr,n);
     // quickSort(arr,0,n-1);
-    // mergeSort(arr,0,n-1);
+    mergeSort(arr,0,n-1);
 
     auto end = chrono::system_clock::now();
     auto end_time = chrono::high_resolution_clock::now();
@@ -47,7 +47,7 @@ int main()
     // cout << "----INSERTION SORT----" << endl;
     // cout << "----SELECTION SORT----" << endl;
     // cout << "----QUICK SORT----" << endl;
-    // cout << "----MERGE SORT----" << endl;
+    cout << "----MERGE SORT----" << endl;
 
     cout<<"Tiempo de ejecucion: "<<time/std::chrono::milliseconds(1) << "ms.\n";
     cout<<"Para "<<n<<" elementos"<<endl;
