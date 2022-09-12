@@ -37,8 +37,10 @@ int main()
 
 	// insertionSort(arr,n);
     // selectionSort(arr,n);
-    // quickSort(arr,0,n-1);
-    mergeSort(arr,0,n-1);
+    quickSort(arr,0,n-1);
+    const int j=n-1;
+    //mergeSort(arr,0,j);
+
 
     auto end = chrono::system_clock::now();
     auto end_time = chrono::high_resolution_clock::now();
@@ -52,7 +54,7 @@ int main()
     cout<<"Tiempo de ejecucion: "<<time/std::chrono::milliseconds(1) << "ms.\n";
     cout<<"Para "<<n<<" elementos"<<endl;
 
-	// printArray(arr,n);
+	//printArray(arr,n);
 
 	return 0;
 }

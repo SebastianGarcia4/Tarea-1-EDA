@@ -90,10 +90,10 @@ void quickSort(float* A, int n){
 }
 
 //MERGESORT HAY QUE ARREGLARLO
-void merge(float * A, int i, int k, int j){
-    float aux[j-i+1];
+void merge(float * A,const int i,const int k, const int j){
+    float* aux=new float[j-i+1];
     for(int a=0; a<j-i+1;a++){
-        aux[a]=0;
+        aux[a]=0.00;
     }
     int q = 0;
     int p1 = i;
@@ -125,7 +125,8 @@ void merge(float * A, int i, int k, int j){
     }
 }
 
-void mergeSort(float * A, int const i, int const j){
+
+void mergeSort(float * A, int i, int j){
     if (i >= j) return; 
     auto k = i + (j-i) / 2;
     mergeSort(A, i, k);
