@@ -32,3 +32,12 @@ float* createRandomArray(int n);
 
 void merge2(float * A, int i, int k, int j);
 
+int getMax(int * A, int n);
+
+void countSort(int * A, int n, int exp);
+
+void radixsort(int * A, int n);
+
+int* createIntArray(int n);
+
+int* createRandomIntArray(int n, int minVal, int maxVal);

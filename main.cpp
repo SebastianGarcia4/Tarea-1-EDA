@@ -1,7 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include "sort.h"
-
+#include <algorithm>
 using namespace std; 
 
 int main()
@@ -18,7 +18,7 @@ int main()
     // const int n=70000;
     // const int n=80000;
     // const int n=90000;
-    const int n=100000;
+    const int n=10000;
 
     // TAMAÑOS GRANDES
     // const int n=100000;
@@ -32,15 +32,16 @@ int main()
     // const int n=900000;
     // const int n=1000000;
 
-    float * arr = createRandomArray(n);
+    // float * arr = createRandomArray(n);
+    int * arr = createRandomIntArray(n, 0, 99999);
+
     auto start_time = chrono::high_resolution_clock::now();
 
 	// insertionSort(arr,n);
     // selectionSort(arr,n);
-    quickSort(arr,0,n-1);
-    const int j=n-1;
-    //mergeSort(arr,0,j);
-
+    // quickSort(arr,0,n-1)
+    // mergeSort(arr,0,n-1);
+    radixsort(arr,n);
 
     auto end = chrono::system_clock::now();
     auto end_time = chrono::high_resolution_clock::now();
@@ -49,12 +50,20 @@ int main()
     // cout << "----INSERTION SORT----" << endl;
     // cout << "----SELECTION SORT----" << endl;
     // cout << "----QUICK SORT----" << endl;
-    cout << "----MERGE SORT----" << endl;
+    // cout << "----MERGE SORT----" << endl;
+    cout << "----Radix SORT----" << endl;
 
     cout<<"Tiempo de ejecucion: "<<time/std::chrono::milliseconds(1) << "ms.\n";
     cout<<"Para "<<n<<" elementos"<<endl;
 
-	//printArray(arr,n);
 
+    int range = n;
+
+    if (is_sorted(arr, arr + range)) {
+        cout << "Sorted in the range : " << range << endl;
+    } else {
+        cout << "Not Sorted in the range : " << range << endl;
+    }
+    delete[] arr;
 	return 0;
 }

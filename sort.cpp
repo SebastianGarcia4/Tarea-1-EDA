@@ -158,3 +158,66 @@ float* createRandomArray(int n){
     }
     return A;
 }
+
+int * createRandomIntArray(int n, int minVal, int maxVal){
+    int* A = createIntArray(n);
+    for (int i = 0; i < n; i++){
+        A[i] = getRandomInt(minVal, maxVal);
+    }
+    return A;
+}
+
+// Funcion para encontrar el maximo de un arreglo
+int getMax(int * A, int n) {
+    int max = A[0];
+    for (int i = 1; i < n; i++){
+        if (A[i] > max){
+            max = A[i];
+        }
+    }
+    return max;
+}
+
+int* createIntArray(int n){
+    return new int[n];
+}
+
+// Funcion countSort y radixSort hecho con ayuda de Geeks for Geeks 
+// https://www.geeksforgeeks.org/radix-sort/
+void countSort(int * A, int n, int exp){
+    int * aux = createIntArray(n); // aux Array
+    int * count = createIntArray(10);
+    for(int i = 0; i<10; i++) {
+        count[i] = 0;
+        }
+    int i;
+
+    // Guardamos las ocurrencias de los numeros en count
+    for (i = 0; i<n; i++) {
+        count[(A[i] / exp) % 10]++;
+        }
+
+    for (i = 1; i<10; i++) {
+        count[i] += count[i - 1];
+        }
+
+    // Construimos el arreglo aux
+    for (i = n-1; i>=0; i--) {
+        aux[count[(A[i] / exp) % 10] - 1] = A[i];
+        count[(A[i] / exp) % 10]--;
+    }
+
+    // Copiamos aux al arreglo A
+    for (i = 0; i < n; i++) {
+        A[i] = aux[i];
+        }
+}
+
+void radixsort(int * A, int n){
+    // Buscamos el numero mayor para saber la cantidad de digitos
+    int m = getMax(A, n);
+
+    for (int exp = 1.0; m / exp > 0; exp *= 10){
+    countSort(A, n, exp);
+ }
+}
