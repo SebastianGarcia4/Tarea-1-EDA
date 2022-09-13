@@ -10,22 +10,22 @@ int main(){
 
     int condicion;
     while(condicion > 0){
-        cout<<"----¿Que parte de la tarea desea ejecutar?----\n  1)Parte I\n  2)Parte II\n  0)Cerrar programa\n>>";
+        cout<<"----Que parte de la tarea desea ejecutar?----\n  1)Parte I\n  2)Parte II\n  0)Cerrar programa\n>>";
         cin>>condicion;
 
         if(condicion == 0)break;
 
         if(condicion == 1){
-            int tamaño;
+            int tamano;
             int algoritmo;
 
-            cout<<"----¿Que tamaño desea utilizar?----\n  1)Pequeño (10.000/100.000)\n  2)Grande (100.000/1.000.000)\n  0)Cerrar programa\n>>";
-            cin>>tamaño;
+            cout<<"----Que tamano desea utilizar?----\n  1)Pequeño (10.000/100.000)\n  2)Grande (100.000/1.000.000)\n  0)Cerrar programa\n>>";
+            cin>>tamano;
 
-            if(tamaño == 0) break;
+            if(tamano == 0) break;
 
-            if(tamaño == 1){
-                cout<< "----¿Que algoritmo desea usar?---- \n  1)Insertion Sort\n  2)Selection Sort\n  3)Quick Sort\n  4)Merge Sort\n  0)Cerrar programa\n>>";
+            if(tamano == 1){
+                cout<< "----Que algoritmo desea usar?---- \n  1)Insertion Sort\n  2)Selection Sort\n  3)Quick Sort\n  4)Merge Sort\n  0)Cerrar programa\n>>";
                 cin>>algoritmo;
 
                 if(algoritmo == 1){
@@ -89,8 +89,8 @@ int main(){
                 }
                 else continue;
             }
-            if(tamaño == 2){
-                cout<< "----¿Que algoritmo desea usar?---- \n  1)Insertion Sort\n  2)Selection Sort\n  3)Quick Sort\n  4)Merge Sort\n  0)Cerrar programa\n>>";
+            if(tamano == 2){
+                cout<< "----Que algoritmo desea usar?---- \n  1)Insertion Sort\n  2)Selection Sort\n  3)Quick Sort\n  4)Merge Sort\n  0)Cerrar programa\n>>";
                 cin>>algoritmo;
 
                 if(algoritmo == 1){
@@ -158,7 +158,7 @@ int main(){
         }
         if(condicion == 2){
             int algoritmo;
-            cout<< "----¿Que algoritmo desea usar?---- \n  1)Quick Sort\n  2)Radix Sort\n  0)Cerrar programa\n>>";
+            cout<< "----Que algoritmo desea usar?---- \n  1)Quick Sort\n  2)Radix Sort\n  0)Cerrar programa\n>>";
             cin>>algoritmo;
             if(algoritmo==0)break;
             if(algoritmo==1){
