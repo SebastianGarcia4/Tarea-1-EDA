@@ -126,6 +126,8 @@ void merge(float * A, int i, int k, int j){
         p2++;
         q++;
     }
+    delete[] der;
+    delete[] izq;
 }
 
 
