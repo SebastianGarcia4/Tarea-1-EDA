@@ -21,7 +21,7 @@ void insertionSort(float * A, int n){
 //INSERTION SORT
 
 //SELECTION SORT
-void swap(float* A, int i, int j){
+void swap(int* A, int i, int j){
 		float aux = A[i];
 		A[i] = A[j];
 		A[j] = aux;
@@ -38,7 +38,7 @@ void selectionSort(float* A, int n){
                 smallest = j;
             }
         }
-        swap(A,i,smallest);
+        //swap(A,i,smallest);
     }
 }
 
@@ -48,7 +48,7 @@ int getRandomInt(int min, int max){
     return static_cast<int>(a * (max - min) + min + 0.5);
 }
 
-int split_qs(float* A, int i, int j){
+int split_qs(int* A, int i, int j){
     /***
      * split for quicksort
      * i,j are the endpoints
@@ -77,7 +77,7 @@ int split_qs(float* A, int i, int j){
     return p;
 }
 
-void quickSort(float* A, int i, int j){
+void quickSort(int* A, int i, int j){
     if (i < j){
         int k = split_qs(A, i, j);
         quickSort(A, i, k-1);
@@ -85,7 +85,7 @@ void quickSort(float* A, int i, int j){
     }
 }
 
-void quickSort(float* A, int n){
+void quickSort(int* A, int n){
     quickSort(A, 0, n - 1);
 }
 
@@ -140,7 +140,7 @@ void mergeSort(float * A, int i, int j){
 } 
 //MERGESORT HAY QUE ARREGLARLO
 
-void printArray(float* A, int n){
+void printArray(int* A, int n){
 		for (int i = 0; i < n; i++){
 			std::cout<<A[i]<<" ";
 		}

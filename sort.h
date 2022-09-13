@@ -5,24 +5,24 @@
 void insertionSort(float arr[], int n);
 
 //SELECTION SORT
-void swap(float* A, int i, int j);
+void swap(int* A, int i, int j);
 void selectionSort(float* A, int n);
 
 //QUICKSORT
 int getRandomInt(int min, int max);
-int split_qs(float* A, int i, int j);
-void quickSort(float* A, int i, int j);
-void quickSort(float* A, int n);
+int split_qs(int* A, int i, int j);
+void quickSort(int* A, int i, int j);
+void quickSort(int* A, int n);
 
 
 //MERGESORT
-void merge(float array[], int const left, int const mid,
-        int const right);
+//void merge(float array[], int const left, int const mid,
+//       int const right);
 
-void mergeSort(float array[], int const begin, int const end);
+void mergeSort(float * array, int const begin, int const end);
 
 //PRINT ARRAY
-void printArray(float* A, int n);
+void printArray(int* A, int n);
 
 //CREATE RAND ARRAY
 
@@ -30,7 +30,7 @@ float* createArray(int n);
 
 float* createRandomArray(int n); 
 
-void merge2(float * A, int i, int k, int j);
+void merge(float * A, int i, int k, int j);
 
 int getMax(int * A, int n);
 
