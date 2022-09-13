@@ -90,45 +90,48 @@ void quickSort(float* A, int n){
 }
 
 //MERGESORT HAY QUE ARREGLARLO
-void merge(float * A,const int i,const int k, const int j){
-    float* aux=new float[j-i+1];
-    for(int a=0; a<j-i+1;a++){
-        aux[a]=0.00;
-    }
-    int q = 0;
-    int p1 = i;
-    int p2 = k+1;
+void merge(float * A, int i, int k, int j){
+    float * izq = new float[k-i+1];
+    float * der = new float[j-k];
 
-    while(p1 <= k && p2 <= j){
-        if(A[p1] <= A[p2]){
-            aux[q] = A[p1];
-            p1 = p1+1;
+    for(int a = 0; a<j-i+1; a++){
+        izq[a] = A[a+i];
+    }
+    for(int a = 0; a<j-k; a++){
+        der[a] = A[a+k+1];
+    }
+
+    int p1 = 0;
+    int p2 = 0;
+    int q = i;
+
+    while(p1 <= k-i+1 && p2 <= j-k){
+        if(izq[p1] <= der[p2]){
+            A[q] = izq[p1];
+            p1++;
         }
         else{
-            aux[q] = A[p2];
-            p2 = p2+1;
+            A[q] = der[p2];
+            p2++;
         }
-        q = q+1;
+        q++;
     }
-    while(p1<=k){
-        aux[q] = A[p1];
-        p1 = p1+1;
-        q = q+1;
+    while(p1<=k-i+1){
+        A[q] = izq[p1];
+        p1++;
+        q++;
     }
-    while(p2<=j){
-        aux[q] = A[p2];
-        p2 = p2+1;
-        q = q+1;
-    }
-    for(int a=0; a<j; a++){
-        A[a]=aux[a];
+    while(p2<=j-k){
+        A[q] = der[p2];
+        p2++;
+        q++;
     }
 }
 
 
 void mergeSort(float * A, int i, int j){
     if (i >= j) return; 
-    auto k = i + (j-i) / 2;
+    auto k = (i + j) / 2;
     mergeSort(A, i, k);
     mergeSort(A, k+1, j);
     merge(A, i, k, j);
