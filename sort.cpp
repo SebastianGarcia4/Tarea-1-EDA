@@ -18,15 +18,19 @@ void insertionSort(float * A, int n){
 		A[j+1] = elem;
 	}
 }
-//INSERTION SORT
+
 
 //SELECTION SORT
-void swap(int* A, int i, int j){
+void swap(float* A, int i, int j){
+    float aux = A[i];
+    A[i] = A[j];
+    A[j] = aux;
+}
+void swapInt(int* A, int i, int j){
 		float aux = A[i];
 		A[i] = A[j];
 		A[j] = aux;
 }
- 
 void selectionSort(float* A, int n){
     int smallest = 0;
     int i = 0;
@@ -38,7 +42,7 @@ void selectionSort(float* A, int n){
                 smallest = j;
             }
         }
-        //swap(A,i,smallest);
+        swap(A,i,smallest);
     }
 }
 
@@ -49,6 +53,43 @@ int getRandomInt(int min, int max){
 }
 
 int split_qs(int* A, int i, int j){
+
+    int p = getRandomInt(i, j);
+
+    while (i  < j) {
+
+        while ( i < p && A[i] <= A[p]){
+            i = i + 1;
+        }
+
+        while ( j > p && A[j] >= A[p]){
+            j = j - 1;
+        }
+
+        swapInt(A, i, j);
+
+        if (i == p){
+            p = j;
+        }
+        else if (j == p){
+            p = i;
+        }
+    }
+    return p;
+}
+void quickSort(int* A, int i, int j){
+    if (i < j){
+        int k = split_qs(A, i, j);
+        quickSort(A, i, k-1);
+        quickSort(A, k + 1, j);
+    }
+}
+void quickSort(int* A, int n){
+    quickSort(A, 0, n - 1);
+}
+
+// QuickSort Floats
+int split_qsFloat(float* A, int i, int j){
     /***
      * split for quicksort
      * i,j are the endpoints
@@ -76,20 +117,18 @@ int split_qs(int* A, int i, int j){
     }
     return p;
 }
-
-void quickSort(int* A, int i, int j){
+void quickSortFloat(float* A, int i, int j){
     if (i < j){
-        int k = split_qs(A, i, j);
-        quickSort(A, i, k-1);
-        quickSort(A, k + 1, j);
+        int k = split_qsFloat(A, i, j);
+        quickSortFloat(A, i, k-1);
+        quickSortFloat(A, k + 1, j);
     }
 }
-
-void quickSort(int* A, int n){
-    quickSort(A, 0, n - 1);
+void quickSortFloat(float* A, int n){
+    quickSortFloat(A, 0, n - 1);
 }
 
-//MERGESORT HAY QUE ARREGLARLO
+//MERGESORT
 void merge(float * A, int i, int k, int j){
     float * izq = new float[k-i+1];
     float * der = new float[j-k];
@@ -129,8 +168,6 @@ void merge(float * A, int i, int k, int j){
     delete[] der;
     delete[] izq;
 }
-
-
 void mergeSort(float * A, int i, int j){
     if (i >= j) return; 
     auto k = (i + j) / 2;
@@ -138,8 +175,8 @@ void mergeSort(float * A, int i, int j){
     mergeSort(A, k+1, j);
     merge(A, i, k, j);
 } 
-//MERGESORT HAY QUE ARREGLARLO
 
+//PRINT ARRAY
 void printArray(int* A, int n){
 		for (int i = 0; i < n; i++){
 			std::cout<<A[i]<<" ";
@@ -147,12 +184,10 @@ void printArray(int* A, int n){
 		std::cout<<std::endl;
 	}
 
-//CREATE RAND ARRAY
-
+//CREATE ARRAY
 float * createArray(int n){
         return new float[n];
 }
-
 float* createRandomArray(int n){
     float* A = createArray(n);
     for (int i = 0; i < n; i++){
@@ -160,7 +195,9 @@ float* createRandomArray(int n){
     }
     return A;
 }
-
+int* createIntArray(int n){
+    return new int[n];
+}
 int * createRandomIntArray(int n, int minVal, int maxVal){
     int* A = createIntArray(n);
     for (int i = 0; i < n; i++){
@@ -169,6 +206,7 @@ int * createRandomIntArray(int n, int minVal, int maxVal){
     return A;
 }
 
+// RADIX SORT
 // Funcion para encontrar el maximo de un arreglo
 int getMax(int * A, int n) {
     int max = A[0];
@@ -180,9 +218,6 @@ int getMax(int * A, int n) {
     return max;
 }
 
-int* createIntArray(int n){
-    return new int[n];
-}
 
 // Funcion countSort y radixSort hecho con ayuda de Geeks for Geeks 
 // https://www.geeksforgeeks.org/radix-sort/
